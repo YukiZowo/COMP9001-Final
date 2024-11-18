@@ -134,3 +134,74 @@ def extract_field():
 ```
 - **说明**：在上面的代码中，`field` 是一个 generator 表达式，用于提取日志文件的最后一个字段。生成器对象可以用作迭代器，用于简化循环任务。
 
+## 10. Generator 练习题
+
+### 10.1 Task 1: Square Numbers Generator
+编写一个名为 `square_numbers` 的生成器函数，该函数接收一个数字 `n`，并生成从 1 到 `n` 的每个数字的平方。
+
+#### 示例
+```python
+def square_numbers(n):
+    for i in range(1, n + 1):
+        yield i * i
+
+# 使用示例
+for square in square_numbers(5):
+    print(square)
+```
+**输出**：
+```
+1
+4
+9
+16
+25
+```
+
+### 10.2 Task 2: Word Lengths Generator
+创建一个名为 `word_lengths` 的生成器函数，该函数接收一个单词列表，并生成每个单词的长度。
+
+#### 示例
+```python
+def word_lengths(words):
+    for word in words:
+        yield len(word)
+
+# 使用示例
+words = ["apple", "banana", "kiwi", "grapefruit"]
+for length in word_lengths(words):
+    print(length)
+```
+**输出**：
+```
+5
+6
+4
+10
+```
+
+### 10.3 Task 3: Even Number Generator
+使用生成器表达式生成从 1 到 100 的所有偶数。
+
+#### 示例
+```python
+# 生成从 1 到 100 的偶数的生成器表达式
+even_gen = (x for x in range(1, 101) if x % 2 == 0)
+
+# 使用示例
+for even in even_gen:
+    print(even)
+```
+**输出**：
+```
+2
+4
+6
+8
+10
+12
+...
+100
+```
+
+---
