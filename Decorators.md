@@ -216,7 +216,7 @@ greet()
 
 **任务描述**：创建一个装饰器，用于检查函数参数是否有效。Create a decorator that checks for valid arguments.
 
-编写一个名为 `validate_args` 的装饰器，检查传递给函数的参数是否是特定类型（例如 `int` 或 `float`）。如果提供了无效的参数，打印 "Invalid argument!" 并返回 `None`，否则执行函数。将该装饰器应用于函数 `add`，该函数用于将两个数字相加。
+编写一个名为 `validate_args` 的装饰器，检查传递给函数的参数是否是特定类型（例如 `int` 或 `float`）。如果提供了无效的参数，打印 "Invalid argument!" 并返回 `None`，否则执行函数。将该装饰器应用于函数 `add`，该函数用于将两个数字相加。  
 Write a decorator called `validate_args` that checks if the arguments provided to a function are of a specific type (e.g., `int` or `float`). If an invalid argument is provided, print "Invalid argument!" and return `None`. Otherwise, execute the function. Apply this decorator to a function add that adds two numbers together.
 
 ```python
@@ -244,7 +244,7 @@ print(add(2, "three")) # 输出: Invalid argument!
 
 **任务描述**：创建一个装饰器，用于测量函数的执行时间。Create a decorator that measures the execution time of a function.
 
-编写一个名为 `measure_time` 的装饰器，记录函数执行的时间。将该装饰器应用于函数 `factorial_iterative`，该函数用于计算一个数的阶乘。
+编写一个名为 `measure_time` 的装饰器，记录函数执行的时间。将该装饰器应用于函数 `factorial_iterative`，该函数用于计算一个数的阶乘。  
 Write a decorator called `measure_time` that records the time taken to execute a function. Apply this decorator to a function `factorial_iterative` that calculates the factorial of a number.
 
 ```python
