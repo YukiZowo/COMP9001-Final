@@ -137,7 +137,7 @@ def extract_field():
 ## 10. Generator 练习题
 
 ### 10.1 Task 1: Square Numbers Generator
-编写一个名为 `square_numbers` 的生成器函数，该函数接收一个数字 `n`，并生成从 1 到 `n` 的每个数字的平方。
+编写一个名为 `square_numbers` 的生成器函数，该函数接收一个数字 `n`，并生成从 1 到 `n` 的每个数字的平方。  
 Write a generator function called square_numbers that takes a number n and yields the square of each number from 1 to n.
 
 #### 示例
@@ -160,7 +160,7 @@ for square in square_numbers(5):
 ```
 
 ### 10.2 Task 2: Word Lengths Generator
-创建一个名为 `word_lengths` 的生成器函数，该函数接收一个单词列表，并生成每个单词的长度。
+创建一个名为 `word_lengths` 的生成器函数，该函数接收一个单词列表，并生成每个单词的长度。  
 Create a generator function called word_lengths that takes a list of words and yields the length of each word.
 
 #### 示例
@@ -183,7 +183,7 @@ for length in word_lengths(words):
 ```
 
 ### 10.3 Task 3: Even Number Generator
-使用生成器表达式生成从 1 到 100 的所有偶数。
+使用生成器表达式生成从 1 到 100 的所有偶数。  
 For this task, we'll use a *generator expression* to generate even numbers from 1 to 100.
 
 #### 示例
