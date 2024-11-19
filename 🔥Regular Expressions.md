@@ -1,4 +1,4 @@
-# Python Regular Expressions 详解
+# Regular Expressions 正则表达式
 
 ## 1. 什么是正则表达式？
 正则表达式（Regular Expression）是一种用于匹配文本中字符模式的工具。通过定义特定的模式，正则表达式可以用于搜索、替换和处理文本。
@@ -49,6 +49,39 @@
   goodbye$
   ```
   - **说明**：匹配以 `goodbye` 结尾的行。
+
+### 2.6 重复匹配符号
+
+- `*`：匹配前面的字符 0 次或多次。
+  ```regex
+  a*b
+  ```
+  - **说明**：匹配 'b'、'ab'、'aab' 等。
+- `+`：匹配前面的字符 1 次或多次。
+  ```regex
+  a+b
+  ```
+  - **说明**：匹配 'ab'、'aab'、'aaab' 等。
+- `?`：匹配前面的字符 0 次或 1 次。
+  ```regex
+  colou?r
+  ```
+  - **说明**：匹配 'color' 或 'colour'。
+- `{n}`：匹配前面的字符恰好 n 次。
+  ```regex
+  a{3}
+  ```
+  - **说明**：匹配 'aaa'。
+- `{n,}`：匹配前面的字符至少 n 次。
+  ```regex
+  a{2,}
+  ```
+  - **说明**：匹配 'aa'、'aaa'、'aaaa' 等。
+- `{n,m}`：匹配前面的字符至少 n 次，至多 m 次。
+  ```regex
+  a{1,3}
+  ```
+  - **说明**：匹配 'a'、'aa' 或 'aaa'。
 
 ## 3. 使用 Python 中的正则表达式
 在 Python 中，可以使用 `re` 模块来处理正则表达式。
@@ -222,6 +255,122 @@ with open('done.txt', 'r') as file:
             print(line.strip())
 ```
 - **说明**：`$` 用于匹配行尾，因此 `done$` 匹配以 `done` 结尾的行。
+
+
+
+## 8. Regex 高级练习
+
+### 练习 1: 查找包含非数字的行
+**Exercise 1: Find Lines Containing Non-Digits**
+
+编写一个 Python 程序，读取文件 `mix.txt`，并打印包含任何非数字字符的行。
+Write a Python program that reads from a file (`mix.txt`) and prints lines that contain any character other than digits.
+
+**Example:**
+
+**Input file:**
+```
+12345
+67890
+Hello123
+Welcome to 2023!
+999
+```
+**Expected Output:**
+```
+Hello123
+Welcome to 2023!
+```
+
+**解答**：
+```python
+import re
+
+with open('mix.txt', 'r') as file:
+    for line in file:
+        if re.search(r'\D', line):
+            print(line.strip())
+```
+- **说明**：`\D` 表示匹配任意非数字字符。
+
+### 练习 2: 提取字母数字单词
+**Exercise 2: Match Alphanumeric Words**
+
+编写一个 Python 程序，读取文件并提取所有字母数字单词。
+Write a Python program to read a file and extract all alphanumeric words.
+
+**Example:**
+
+**Input file:**
+```
+Hello, world! This is 2024.
+Welcome_to the future?
+Regex is fun, right?
+```
+**Expected Output:**
+```
+['Hello', 'world', 'This', 'is', '2024']
+['Welcome', 'to', 'the', 'future']
+['Regex', 'is', 'fun', 'right']
+```
+
+**解答**：
+```python
+import re
+
+with open('input.txt', 'r') as file:
+    for line in file:
+        words = re.findall(r'\b\w+\b', line)
+        print(words)
+```
+- **说明**：`\b` 表示单词边界，`\w+` 表示匹配一个或多个字母、数字或下划线。
+
+### 练习 3: 使用分组提取并打印匹配的单词
+**Exercise 3: Extract and Print Words Matching Different Patterns Using Groups**
+
+编写一个程序，使用正则表达式分组来匹配包含以下内容的行：
+- 一个名字（以大写字母开头）。
+- 一个年龄（两位数的数字）。
+- 一个地点（以大写字母开头的单词）。
+
+Write a program that uses regular expression groups to match lines that contain:
+- A name (which starts with a capital letter).
+- An age (which is a two-digit number).
+- A location (a word that starts with a capital letter).
+
+**Example:**
+
+**Input file:**
+```
+Alice 25 lives in Paris
+Bob 30 lives in New York
+Charlie 28 lives in London
+Diana 32 lives in Tokyo
+```
+**Expected Output:**
+```
+Name: Alice, Age: 25, Location: Paris
+Name: Bob, Age: 30, Location: New York
+Name: Charlie, Age: 28, Location: London
+Name: Diana, Age: 32, Location: Tokyo
+```
+
+**解答**：
+```python
+import re
+
+pattern = r'(?P<name>[A-Z][a-z]+) (?P<age>\d{2}) lives in (?P<location>[A-Z][a-zA-Z]*)'
+
+with open('input.txt', 'r') as file:
+    for line in file:
+        match = re.search(pattern, line)
+        if match:
+            name = match.group('name')
+            age = match.group('age')
+            location = match.group('location')
+            print(f'Name: {name}, Age: {age}, Location: {location}')
+```
+- **说明**：使用命名分组 `(?P<name>...)` 来提取名字、年龄和地点。
 
 ---
 
