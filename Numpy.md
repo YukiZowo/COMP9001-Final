@@ -2,6 +2,10 @@
 
 ## 1. 什么是 NumPy？
 
+If you want to do some very fast calculation in a Python program, you may have to use a different way of storing data. Python lists are not as efficient or high speed as an array. The NUMPY package implements arrays using the **C language** and lets you store your data in very fast arrays.
+
+
+
 NumPy 是 Python 中用于科学计算的基础库之一，提供了高效的多维数组对象（ndarray）以及丰富的函数库来操作这些数组。它是数据分析和机器学习的核心工具之一。
 
 - **ndarray**: NumPy 提供了一个强大的多维数组对象，称为 ndarray，这个对象可以用于高效地存储和操作大型数据集。
